@@ -5,8 +5,9 @@ const body = document.querySelector("body");
 const gallery = document.getElementById("gallery");
 const searchContainer = document.querySelector(".search-container");
 const employeeData = "https://randomuser.me/api/?nat=us&results=12"
-let employeeInfo = [];
-
+const cards = document.querySelectorAll(".card");
+var employeeInfo = [];
+let index = "";
 
 
 
@@ -26,6 +27,7 @@ fetchData(employeeData)
         data.results.map(result => employeeInfo.push(result))
         generateGallery(employeeInfo)
 
+        
 })
 
 
