@@ -31,20 +31,6 @@ fetchData(employeeData)
 })
 
 
-/*Promise.all([
-    fetchData('https://randomuser.me/api/?nat=us&results=12')
-])
-.then(data => {
-    data.results.map(result => employeeInfo.push(result))
-    generateGallery(employeeInfo);
-    
-})
-*/
-//UPDATE FUNCTIONS ONCE CREATED
-
-
-
-
 //
 //HELPER FUNCTIONS
 //
@@ -99,14 +85,14 @@ function generateInfo(employee, index) {
                 <p class="modal-text">${employee.cell.replace} </p>
                 <p class= "modal-text">${employee.location.street.number} ${employee.location.street.name} ${employee.location.city}, ${employee.location.state} ${employee.loaction.zip}</p>
                 <p class= "modal-text">Birthday: ${employee.dob.date.slice(5,7)}/${employee.dob.date.slice(8,10)}/${employee.dob.date.slice(2,4)}</p>
+              </div>
+            </div>
+
+           <div class="modal-btn-container">
+               <button type="button" id="modal-prev" class= "modal-prev btn">Prev</button>
+               <button type= "button" id= "modal-next" class= "modal-next btn">Next</button>
             </div>
         </div>
-
-        <div class="modal-btn-container">
-            <button type="button" id="modal-prev" class= "modal-prev btn">Prev</button>
-            <button type= "button" id= "modal-next" class= "modal-next btn">Next</button>
-        </div>
-      </div>
     `;
     body.insertAdjacentHTML("beforeend", modalHTML)
 }
