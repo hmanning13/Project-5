@@ -4,7 +4,8 @@
 const body = document.querySelector("body");
 const gallery = document.getElementById("gallery");
 const searchContainer = document.querySelector(".search-container");
-
+const employeeData = "https://randomuser.me/api/?nat=us&results=12"
+let employeeInfo = [];
 
 
 
@@ -20,16 +21,24 @@ function fetchData(url) {
             .catch(error => console.log("There was a problem:", error))
 }
 
+fetchData(employeeData)
+    .then(data => {
+        data.results.map(result => employeeInfo.push(result))
+        generateGallery(employeeInfo)
 
-Promise.all([
+})
+
+
+/*Promise.all([
     fetchData('https://randomuser.me/api/?nat=us&results=12')
 ])
 .then(data => {
-    const userList = data[0].message;
-
-    generateOptions(userList);
-    generateImages(userList);
+    data.results.map(result => employeeInfo.push(result))
+    generateGallery(employeeInfo);
+    
 })
+*/
+//UPDATE FUNCTIONS ONCE CREATED
 
 
 
@@ -45,19 +54,48 @@ function checkStatus(response) {
     }
 }
 
+//GENERATEGALLERY
 
-function generateOptions(data) {
+
+function createHTML(data) {
+    gallery.innerHTML = "";
+    data.map((item, index) => generateGallery(item, index));
+}
+
+
+function generateGallery(data) {
+    data.map(employee => {
+        const html = `
+           <div class="card">
+              <div class="card-img-container">
+                 <img class="card-img" src="${employee.picture.large}" alt="profile picture">
+              </div>
+              <div class="card-info-container">
+                 <h3 id="name" class="card-name cap">${employee.name.first} ${employee.name.last}</h3>
+                 <p class="card-text">${employee.email}</p>
+                 <p class="card-text cap">${employee.location.city}, ${employee.location.state}<p/>
+              <div/>
+            </div>
+        `;
+        gallery.insertAdjacentHTML("beforeend", html);
+    });
+
+};
+
+
+/*(function generateOptions(data) {
     const options = data.map(item => `
         <option value="${item}">${item}</option>
     `).join("");
     select.innerHTML = options;
 }
+*/
 
-
-function generateImages(data) {
+/*function generateImages(data) {
     const html = `
         <img src="${data}" alt>
         <p>Click to learn more about ${select.value}</p>
     `;
     card.innerHTML = html;
 }
+*/
