@@ -78,6 +78,7 @@ function generateGallery(data) {
             </div>
         `;
         gallery.insertAdjacentHTML("beforeend", html);
+        gallery.style.backgroundColor = "#5d6850";
     });
 
 };
