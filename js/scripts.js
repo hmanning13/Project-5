@@ -27,16 +27,8 @@ fetchData(employeeData)
     .then(data => {
         data.results.map(result => employeeInfo.push(result))
         generateGallery(employeeInfo)
-
-        cards.forEach(card => {
-            card.addEventListener("click", (e) => {
-                let target = e.target.closest(".card");
-                let index = cardsArray.indexOf(target)
-                generateInfo(employeeInfo[index], index)
-            })
-        })
-
         
+    
 })
 
 
@@ -111,5 +103,23 @@ function generateInfo(employee, index) {
 //MODAL FUNCTION
 //
 
-//const modal = document.querySelector(".modal-container");
-//const closeBtn = modal.querySelector(".modal-close-btn")
+/*const modal = document.querySelector(".modal-container");
+const trigger = document.querySelector(".trigger");
+const closeButton = document.querySelector(".close-button");
+
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        togalModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+*/
+
