@@ -6,7 +6,8 @@ const gallery = document.getElementById("gallery");
 const searchContainer = document.querySelector(".search-container");
 const employeeData = "https://randomuser.me/api/?nat=us&results=12"
 const cards = document.querySelectorAll(".card");
-var employeeInfo = [];
+const cardsArray = Array.from(cards)
+let employeeInfo = [];
 let index = "";
 
 
@@ -26,6 +27,14 @@ fetchData(employeeData)
     .then(data => {
         data.results.map(result => employeeInfo.push(result))
         generateGallery(employeeInfo)
+
+        cards.forEach(card => {
+            card.addEventListener("click", (e) => {
+                let target = e.target.closest(".card");
+                let index = cardsArray.indexOf(target)
+                generateInfo(employeeInfo[index], index)
+            })
+        })
 
         
 })
@@ -96,3 +105,11 @@ function generateInfo(employee, index) {
     `;
     body.insertAdjacentHTML("beforeend", modalHTML)
 }
+
+
+//
+//MODAL FUNCTION
+//
+
+//const modal = document.querySelector(".modal-container");
+//const closeBtn = modal.querySelector(".modal-close-btn")
