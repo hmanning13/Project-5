@@ -6,7 +6,6 @@ const gallery = document.getElementById("gallery");
 const searchContainer = document.querySelector(".search-container");
 const employeeData = "https://randomuser.me/api/?nat=us&results=12"
 const cards = document.querySelectorAll(".card");
-const cardsArray = Array.from(cards)
 let employeeInfo = [];
 let index = "";
 
