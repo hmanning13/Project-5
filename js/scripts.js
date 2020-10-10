@@ -11,10 +11,6 @@ let index = "";
 
 
 
-
-
-
-
 //
 //FETCH FUNCTIONS 
 //
@@ -30,6 +26,17 @@ fetchData(employeeData)
     .then(data => {
         data.results.map(result => employeeInfo.push(result))
         generateGallery(employeeInfo)
+
+        const cards = document.querySelectorAll(".card");
+        cardsArray = Array.from(cards);
+
+        cards.forEach(card => {
+            card.addEventListener("click", (e) => {
+                const selectedCard = e.target.closest(".card")
+                index = cardsArray.indexOf(selectedCard);
+                generateInfo(employeeData[index], index);
+            })
+        })
         
     
 })
@@ -81,7 +88,7 @@ function generateGallery(data) {
 
 
 
-function generateInfo(employee) {
+function generateInfo(employee, index) {
     const modalHTML = `
        <div class="modal-container">
           <div class="modal">
@@ -104,12 +111,7 @@ function generateInfo(employee) {
         </div>
     `;
     body.insertAdjacentHTML("beforeend", modalHTML)
-    const card = document.createElement("div");
-    card.innerHTML = modalHTML;
-    document.body.appendChild(card);
-    card.addEventListener("click", () => {
-        generateInfo(employee)
-    })
+    
 }
 
 
