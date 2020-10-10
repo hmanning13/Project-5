@@ -11,6 +11,10 @@ let index = "";
 
 
 
+
+
+
+
 //
 //FETCH FUNCTIONS 
 //
@@ -67,12 +71,17 @@ function generateGallery(data) {
         `;
         gallery.insertAdjacentHTML("beforeend", html);
         gallery.style.backgroundColor = "#5d6850";
+
     });
+    
 
-};
+};    
 
 
-function generateInfo(employee, index) {
+
+
+
+function generateInfo(employee) {
     const modalHTML = `
        <div class="modal-container">
           <div class="modal">
@@ -95,6 +104,12 @@ function generateInfo(employee, index) {
         </div>
     `;
     body.insertAdjacentHTML("beforeend", modalHTML)
+    const card = document.createElement("div");
+    card.innerHTML = modalHTML;
+    document.body.appendChild(card);
+    card.addEventListener("click", () => {
+        generateInfo(employee)
+    })
 }
 
 
@@ -102,23 +117,15 @@ function generateInfo(employee, index) {
 //MODAL FUNCTION
 //
 
-/*const modal = document.querySelector(".modal-container");
-const trigger = document.querySelector(".trigger");
-const closeButton = document.querySelector(".close-button");
+//const modal = document.querySelector(".modal-container");
 
 
-function toggleModal() {
-    modal.classList.toggle("show-modal");
-}
 
-function windowOnClick(event) {
-    if (event.target === modal) {
-        togalModal();
-    }
-}
 
-trigger.addEventListener("click", toggleModal);
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);
-*/
 
+
+
+
+
+
+//const closeButton = document.querySelector(".close-button");
