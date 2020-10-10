@@ -112,22 +112,9 @@ function generateInfo(employee, index) {
         </div>
     `;
     body.insertAdjacentHTML("beforeend", modalHTML)
-    
+    const modal = document.querySelector(".modal-container");
+    document.getElementById("modal-close-btn").addEventListener("click", () => {
+        modal.remove();
+    })
 }
-
-
-//
-//MODAL FUNCTION
-//
-
-const modal = document.querySelector(".modal-container");
-const closeButton = document.querySelector(".modal-close-btn");
-const prevButton = document.querySelector(".modal-prev");
-const nextButton = document.querySelector(".modal-next");
-
-//function toggleModal(emploee, index) {
-    //document.querySelector(".modal-container").remove();
-    //generateInfo(employee, index);
-//}
-
 
