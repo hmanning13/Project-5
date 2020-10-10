@@ -99,7 +99,7 @@ function generateInfo(employee, index) {
                 <h3 id="name" class="modal-name cap">${employee.name.first} ${employee.name.last}</h3>
                 <p class= "modal-text">${employee.email}</p>
                 <p class= "modal-text cap">${employee.location.city}</p>
-                <p class="modal-text">${employee.cell.replace} </p>
+                <p class="modal-text">${employee.cell} </p>
                 <p class= "modal-text">${employee.location.street.number} ${employee.location.street.name} ${employee.location.city}, ${employee.location.state} ${employee.location.postcode}</p>
                 <p class= "modal-text">Birthday: ${employee.dob.date.slice(5,7)}/${employee.dob.date.slice(8,10)}/${employee.dob.date.slice(2,4)}</p>
               </div>
