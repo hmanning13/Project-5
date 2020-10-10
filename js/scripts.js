@@ -54,8 +54,11 @@ function checkStatus(response) {
     }
 }
 
-//GENERATEGALLERY
 
+
+//
+//GENERATE GALLERY
+//
 
 function createHTML(data) {
     gallery.innerHTML = "";
@@ -87,9 +90,11 @@ function generateGallery(data) {
 
 
 
+//
+//GENERATES ALL INFORMATION FOR MODAL WINDOW WHEN EMPLOYEE IS CLICKED
+//
 
-
-function generateInfo(employee, index) {
+function generateInfo(employee) {
     const modalHTML = `
        <div class="modal-container">
           <div class="modal">
@@ -118,3 +123,6 @@ function generateInfo(employee, index) {
     })
 }
 
+//
+//CLICK EVENT ABOVE FOR MODAL POP UP WINDOW
+//
